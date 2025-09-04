@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Student detail page</h1>
+    <form action="/add">
+        <button>Add student</button>
+    </form>
+    <hr>
+    <% for(detail of stuDetail){ %>
+        <div class="detail">
+            <h1>Student name : <%= detail.name %></h1>
+            <h2>Course : <%= detail.course %></h2>
+            <p>Admission No. : <%= detail.admno %></p>
+            <p>Residence : <%= detail.residence %></p>
+            <form action="/home/<%= detail._id %>/edit" method="get">
+                <button>Edit Student</button>
+            </form>
+            <br>
+            <form action="/home/<%= detail._id %>/delete?_method=DELETE" method="post">
+                <button>Delete Student</button>
+            </form>
+            <br>
+            <form action="/home/<%= detail._id %>/see" method="get">
+                <button>See Student Details</button>
+            </form>
+            <hr>
+        </div>
+    <% } %>
+</body>
+</html>

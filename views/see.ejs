@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See</title>
+</head>
+<body>
+    <h1>See @<%= findStu._id %> Detail</h1>
+    <div>
+        <h1>Student name : <%= findStu.name %></h1>
+        <h2>Course : <%= findStu.course %></h2>
+        <p>Admission No. : <%= findStu.admno %></p>
+        <p>Residence : <%= findStu.residence %></p>
+    </div>
+    <br>
+    <b>
+        <form action="/home" method="get">
+            <button>Back To Main Page</button>
+        </form>
+    </b>
+</body>
+</html>
