@@ -3,7 +3,7 @@ services:
     container_name: nodejs_crud_app
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     ports:
     - "8082:8082"
     environment:
