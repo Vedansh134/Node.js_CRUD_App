@@ -21,13 +21,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy App from builder
-COPY --from=builder /app .
+COPY --from=builder /app /app
 
 # Expose application
 EXPOSE 8082
 
 # Environment variable for MongoDB URL (can be overridden at runtime)
-ENV MONGO_URI mongodb://mongodb:27017/shopmart
+ENV MONGO_URI mongodb://mongodb:27017/studetail
 
 # Start Node app
 CMD ["node","index.js"]

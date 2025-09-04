@@ -22,9 +22,9 @@ main()
         console.log("some error occured in database", err);
     });
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/studetail");
+    //await mongoose.connect("mongodb://127.0.0.1:27017/studetail");
     //for docker container
-    //await mongoose.connect("mongodb://mongodb:27017/studetail");
+    await mongoose.connect("mongodb://mongodb:27017/studetail");
 }
 
 // Redirect root to /home
