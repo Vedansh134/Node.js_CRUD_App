@@ -16,7 +16,7 @@ docker --version &>/dev/null
 # if not installed then install docker
 if [[ $? -eq 0 ]]; then
    echo "docker already installed"
-   SUDO docker --version
+   $SUDO docker --version
 else
    echo "Start docker installation ..."
    $SUDO apt-get install docker.io -y
@@ -29,15 +29,15 @@ else
    sleep 5
 
    echo "check docker version"
-   docker --version
+   $SUDO docker --version
 fi
 
 echo "check docker svc status"
-systemctl is-active docker
+$SUDO systemctl is-active docker
 
 # install git and tree
 echo "install git and tree"
-apt-get install git tree -y
+$SUDO apt-get install git tree -y
 
 # ===================== end of script =============================
 
