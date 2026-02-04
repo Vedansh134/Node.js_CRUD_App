@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8082;
+const port = 8080;
 const path = require("path");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
