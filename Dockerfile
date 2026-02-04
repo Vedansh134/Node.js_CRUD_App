@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=builder /app /app
 
 # Expose application
-EXPOSE 8082
+EXPOSE 8080
 
 # Environment variable for MongoDB URL (can be overridden at runtime)
 ENV MONGO_URI mongodb://mongodb:27017/studetail
