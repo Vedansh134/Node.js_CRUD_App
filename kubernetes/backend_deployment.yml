@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend-deployment
+  namespace: crudapp-backend
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: kvedansh/nodejs_crud_app:latest
+          ports:
+            - containerPort: 8080
+          env:
+          - name: MONGODB_URI
+            value: "mongodb://mongodb:27017/studetail"
+            # value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
+          - name: PORT
+            value: "8080"   
+          # Add resource limits for single pod
+          resources: 
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
