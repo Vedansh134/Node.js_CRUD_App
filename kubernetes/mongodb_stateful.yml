@@ -1,0 +1,44 @@
+kind: Deployment # StatefulSet # later use
+apiVersion: apps/v1
+metadata:
+  name: mongo-deployment
+  namespace: crudapp-database
+  labels:
+    app: mongo
+spec:
+  # serviceName: mongodb-svc # for stateful only
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: minikube
+      containers:
+        - name: mongo
+          image: mongo
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-storage
+              mountPath: /data/db
+          env:
+            # pull credentials from secret
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: mongodb-username
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: mongodb-root-password
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
