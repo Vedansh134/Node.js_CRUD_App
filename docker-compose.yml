@@ -1,6 +1,7 @@
 services:
   backend:
     container_name: nodejs_crud_app
+    image: kvedansh/node-crud-app:latest
     build:
       context: .
       dockerfile: Dockerfile
