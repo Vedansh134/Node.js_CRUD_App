@@ -87,10 +87,10 @@ pipeline{
 
     post {
         success {
-            emailltext(
+            emailext(
                 to: 'vedansh.kumar134@gmail.com',
                 subject: "✅ Success: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
-                 body: """
+                body: """
                     <html>
                     <body>
                         <h2 style="color:green">Build Passed!</h2>
@@ -104,7 +104,7 @@ pipeline{
             )
         }
         failure {
-            emailltext(
+            emailext(
                 to: 'vedansh.kumar134@gmail.com',
                 subject: "❌ Failure: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
                 body: """
