@@ -86,38 +86,39 @@ pipeline{
     }
 
     post {
-    success {
-        emailltext(
-            to: 'vedansh.kumar134@gmail.com',
-            subject: "✅ Success: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
-            body: """
-                <html>
-                <body>
-                    <h2 style="color:green">Build Passed!</h2>
-                    <p>Job: ${env.JOB_NAME}</p>
-                    <p>Build: ${env.BUILD_NUMBER}</p>
-                    <p>URL: ${env.BUILD_URL}</p>
-                </body>
-                </html>
-            """,
-            mimeType: 'text/html'
-        )
-    }
-    failure {
-        emailltext(
-            to: 'vedansh.kumar134@gmail.com',
-            subject: "❌ Failure: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
-            body: """
-                <html>
-                <body>
-                    <h2 style="color:red">Build Failed!</h2>
-                    <p>Job: ${env.JOB_NAME}</p>
-                    <p>Build: ${env.BUILD_NUMBER}</p>
-                    <p>URL: ${env.BUILD_URL}</p>
-                </body>
-                </html>
-            """,
-            mimeType: 'text/html'
-        )
+        success {
+            emailltext(
+                to: 'vedansh.kumar134@gmail.com',
+                subject: "✅ Success: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
+                 body: """
+                    <html>
+                    <body>
+                        <h2 style="color:green">Build Passed!</h2>
+                        <p>Job: ${env.JOB_NAME}</p>
+                        <p>Build: ${env.BUILD_NUMBER}</p>
+                        <p>URL: ${env.BUILD_URL}</p>
+                    </body>
+                    </html>
+                """,
+                mimeType: 'text/html'
+            )
+        }
+        failure {
+            emailltext(
+                to: 'vedansh.kumar134@gmail.com',
+                subject: "❌ Failure: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
+                body: """
+                    <html>
+                    <body>
+                        <h2 style="color:red">Build Failed!</h2>
+                        <p>Job: ${env.JOB_NAME}</p>
+                        <p>Build: ${env.BUILD_NUMBER}</p>
+                        <p>URL: ${env.BUILD_URL}</p>
+                    </body>
+                    </html>
+                """,
+                mimeType: 'text/html'
+            )
+        }
     }
 }
